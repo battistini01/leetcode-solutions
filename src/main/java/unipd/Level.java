@@ -1,8 +1,8 @@
 package main.java.unipd;
 
 /**
- * Returs number of nodes having key value <= node level on the tree.
- * Resolution of a problem given at Algorithms and data structures course, UNIPD.
+ * Returns number of nodes having key value <= of node level on the tree.
+ * Resolution of a problem given at Algorithms and data structures course exam, Computer Science UNIPD.
  *
  * @author Alberto Battistini
  * @version 0.1
