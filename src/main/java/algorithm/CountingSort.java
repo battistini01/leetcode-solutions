@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 public class CountingSort {
 
-    //FIXME
-    static void countingSort(int[] arr) {
+    static int[] countingSort(int[] arr) {
         int n = arr.length;
         int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
         for (int c: arr) {
@@ -23,15 +22,17 @@ public class CountingSort {
             count[i] += count[i-1];
         }
 
-        for (int k = arr.length - 1; k >= 0; k--) {
-            arr[k] = arr[count[arr[k] - min] - 1];
+        int[] output =  new int[n];
+        for (int k = n - 1; k >= 0; k--) {
+            output[count[arr[k] - min] - 1] = arr[k];
             count[arr[k] - min]--;
         }
+        return output;
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[] {50, 42, -21, -53};
-        countingSort(arr);
-        System.out.println(Arrays.toString(arr));
+        int[] arr = new int[] {-53, 42, -21, 50, 9, -19, 1};
+        int[] sorted = countingSort(arr);
+        System.out.println(Arrays.toString(sorted));
     }
 }
