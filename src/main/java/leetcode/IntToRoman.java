@@ -1,4 +1,4 @@
-package main.java.leetcode;
+package leetcode;
 
 /**
  * Solution of leetcode problem: Given an integer, convert it to a roman numeral.

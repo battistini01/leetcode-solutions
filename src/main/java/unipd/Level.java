@@ -1,4 +1,4 @@
-package main.java.unipd;
+package unipd;
 
 /**
  * Returns number of nodes having key value <= of node level on the tree.

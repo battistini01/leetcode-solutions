@@ -1,5 +1,6 @@
 # IntelliJ
 .idea/
+.target/
 *.iml
 
 # Compiled class file
