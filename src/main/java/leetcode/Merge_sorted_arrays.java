@@ -19,32 +19,26 @@ import java.util.Arrays;
 public class Merge_sorted_arrays {
 
     static void merge(int[] nums1, int m, int[] nums2, int n) {
-        int i = 0, j = 0;
-        int[] res = new int[m + n];
-        int r = 0;
-        while (i < m && j < n) {
-            if (nums1[i] <= nums2[j]) {
-                res[r] = nums1[i++];
+        int i = m + n - 1;
+        m--;
+        n--;
+        while (m >= 0 && n >= 0) {
+            if (nums1[m] > nums2[n]){
+                nums1[i--] = nums1[m--];
             }
-            else
-                res[r] = nums2[j++];
-            r++;
+            else {
+                nums1[i--] = nums2[n--];
+            }
         }
-        while (i < m) {
-            res[r++] = nums1[i++];
+        while (n >= 0) {
+            nums1[i--] = nums2[n--];
         }
-        while (j < n) {
-            res[r++] = nums2[j++];
-        }
-
-        for (int k = 0; k < nums1.length; k++)
-            nums1[k] = res[k];
     }
 
     public static void main(String[] args) {
-        int[] nums1 = new int[] {1,2,3,0,0,0};
+        int[] nums1 = new int[] {4,5,6,0,0,0};
         int m = 3;
-        int[] nums2 = new int[] {2,5,6};
+        int[] nums2 = new int[] {1,2,3};
         int n = 3;
         merge(nums1, m, nums2, n);
         System.out.println(Arrays.toString(nums1));
