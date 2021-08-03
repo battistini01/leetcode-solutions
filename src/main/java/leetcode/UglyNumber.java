@@ -31,7 +31,7 @@ public class UglyNumber {
     }
 
     public static void main(String[] args) {
-        int n = 8;
-        System.out.println(isUgly(10));
+        int n = 14;
+        System.out.println(isUgly(n));
     }
 }
