@@ -69,10 +69,39 @@ public class LongestCommonSubsequence {
         return L[n][m];
     }
 
+    static int longestCommonSubsequence2(String text1, String text2) {
+        if (text1 == null) return text2.length();
+        if (text2 == null) return text1.length();
+        int n = text1.length();
+        int m = text2.length();
+        int[][] L = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++)
+                L[i][j] = -1;
+        }
+        int lcs = lcs_rec(text1, text2, n-1, m-1, L);
+        return lcs;
+    }
+
+    static int lcs_rec(String s1, String s2, int i, int j, int[][] L) {
+        if (i < 0 || j < 0) return 0;
+        if (L[i][j] != -1)
+            return L[i][j];
+
+        int max = 0;
+        if (s1.charAt(i) == s2.charAt(j))
+            max = 1 + lcs_rec(s1, s2, i-1, j-1, L);
+        else
+            max = Math.max(lcs_rec(s1, s2, i-1, j, L), lcs_rec(s1, s2, i, j-1, L));
+
+        L[i][j] = max;
+        return max;
+    }
+
     public static void main(String[] args) {
         String s1 = "ABBA";
         String s2 = "ABXBA";
         System.out.println("LCS: " + longestCommonSubsequence(s1, s2));
-        System.out.println("LCS_rec: " + LCS_(s1, s2));
+        System.out.println("LCS_rec: " + longestCommonSubsequence2(s1, s2));
     }
 }
