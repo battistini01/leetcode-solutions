@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /**
  *
  * Given two strings text1 and text2, return the length of their longest common subsequence.
@@ -79,8 +82,7 @@ public class LongestCommonSubsequence {
             for (int j = 0; j < m; j++)
                 L[i][j] = -1;
         }
-        int lcs = lcs_rec(text1, text2, n-1, m-1, L);
-        return lcs;
+        return lcs_rec(text1, text2, n-1, m-1, L);
     }
 
     static int lcs_rec(String s1, String s2, int i, int j, int[][] L) {
@@ -100,8 +102,9 @@ public class LongestCommonSubsequence {
 
     public static void main(String[] args) {
         String s1 = "ABBA";
-        String s2 = "ABXBA";
-        System.out.println("LCS: " + longestCommonSubsequence(s1, s2));
+        String s2 = "CABXBA";
+
+        // System.out.println("LCS: " + longestCommonSubsequence(s1, s2));
         System.out.println("LCS_rec: " + longestCommonSubsequence2(s1, s2));
     }
 }
