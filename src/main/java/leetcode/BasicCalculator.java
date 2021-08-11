@@ -47,9 +47,48 @@ public class BasicCalculator {
         return sum;
     }
 
+    // Basic Calculator 2
+    static int calculate2(String s) {
+        if (s==null || s.equals(""))
+            return 0;
+        s = s.replace(" ","");
+        int sum = 0;
+        Stack<Integer> stack = new Stack<>();
+        int num = 0;
+        int sign = '+';
+
+        for (int i = 0; i < s.length(); i++) {
+
+            if (Character.isDigit(s.charAt(i))) {
+                num = num * 10 + (s.charAt(i) - '0');
+            }
+            if (!Character.isDigit(s.charAt(i)) || i == s.length() - 1) {
+                if (sign == '+') {
+                    stack.push(num);
+                }
+                else if (sign == '-') {
+                    stack.push(-num);
+                }
+                else if (sign == '/') {
+                    stack.push(stack.pop() / num);
+                }
+                else if (sign == '*') {
+                    stack.push(stack.pop() * num);
+                }
+
+                sign = s.charAt(i);
+                num = 0;
+            }
+        }
+
+        while (!stack.isEmpty())
+            sum += stack.pop();
+        return sum;
+    }
+
     public static void main(String[] args) {
-        String s = "-(3+(4+5))";
-        System.out.println("expected: -12");
-        System.out.println(calculate(s));
+        //String s = "-(3+(4+5))";
+        String s = "7*2+1";
+        System.out.println(calculate2(s));
     }
 }
