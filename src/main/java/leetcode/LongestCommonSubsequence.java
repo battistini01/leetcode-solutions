@@ -1,8 +1,5 @@
 package leetcode;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 /**
  *
  * Given two strings text1 and text2, return the length of their longest common subsequence.

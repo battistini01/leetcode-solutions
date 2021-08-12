@@ -4,6 +4,9 @@
 .out/
 *.iml
 
+# exercise folder
+.exercise/
+
 # Compiled class file
 *.class
 
