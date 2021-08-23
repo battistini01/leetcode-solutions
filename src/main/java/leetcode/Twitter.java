@@ -7,12 +7,13 @@ class Twitter {
 
     private Map<Integer, List<Integer>> links;
     private Map<Integer, List<Integer>> tweets;
-    private List<Integer> tweetOrder =  new LinkedList<>();
+    private List<Integer> tweetOrder;
 
     /** Initialize your data structure here. */
     public Twitter() {
         links = new HashMap<>();
         tweets = new HashMap<>();
+        tweetOrder = new LinkedList<>();
     }
 
     /** Compose a new tweet. */
